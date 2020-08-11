@@ -1,0 +1,196 @@
+{% load static %}
+
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- mis estilos style.css-->
+    <link rel="stylesheet" href="{% static 'usuarios/css/style.css' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'usuarios/bootstrap-4.5.0-dist/css/bootstrap.min.css' %}">
+    <!--css animates-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
+    <title>{% block titulo %}Lmarket{% endblock titulo %}</title> 
+        
+</head>
+
+
+
+<header>
+    {% block barra_nav %}     
+    <!--barra de navegacion -->
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark nav-p fixed-top">
+            <a class="navbar-brand" href="{% url 'usuarios:usuarios' %}">
+                <img src="{% static 'usuarios/imagenes/LOGOS/l.png' %}" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy"> market
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'usuarios:registro' %}?#">Registrarse<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Negocios</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Servicios
+                    </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Profecionistas</a>
+                            <a class="dropdown-item" href="#">Trabajadores</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Bolsa de trabajo</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Nosotros</a>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <a href="{% url 'usuarios:login' %}" class="btn btn-outline-light" role="button" aria-pressed="true">Iniciar sesion</a>
+                </form>
+            </div>
+        </nav>
+    </div>
+    {% endblock barra_nav %}
+    
+    {% block contenido_header %}
+    <!-- inicia la pagina-->
+    <div class="container heder-inc">
+        <div class="row">
+            <div class="col-md-6 mt-5">
+                <img class="animate__animated animate__fadeIn animate__slower logo" src="{% static 'usuarios/imagenes/LOGOS/logo1.png' %}" alt="">
+            </div>
+            <div class="col-md-6" style="margin-top: 6%;">
+                <h1 class="animate__animated animate__fadeIn animate__slow">Encuentra</h1>
+                <li class="animate__animated animate__zoomInDown animate__delay-2s animate__slow">Productos</li>
+                <li class="animate__animated animate__zoomInDown animate__delay-3s animate__slow">Servicios</li>
+                <li class="animate__animated animate__zoomInDown animate__delay-4s animate__slow">Todo a tu alcance </li>
+            </div>
+            <!-- buscador-->
+            <div class="col-md-12 buscador animate__animated animate__zoomIn animate__delay-5s animate__slow">
+                <form class=" form-inline">
+                    <input class="mr-sm-2 mt-3" type="text" aria-label="Search">
+                    <button class="button-search mt-3" type="submit"><svg width="1em" height="1em" viewBox="0 0 16 16"  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                        <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                        </svg></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock contenido_header %}
+</header>
+    
+
+<body>
+    {% block contenido %}
+    <!--seccion debajo de la intro y buscador-->
+    <section style="background-color: rgb(236, 236, 236);">
+        <ul class="nav nav-tabs nav-s " id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Productos</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Servicios</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Lmarket</a>
+            </li>
+        </ul>
+        <div class="container">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <div class="col-md-6 con-texto">
+                            <h1>Lmarquet acerca los negocios locales e inclrementa el mercado local</h1>
+                            <p>Actualmente la alta demanda de disponibilidad de productos y servicios va en aumento, lo cual requiere de altos costos en logística, para lo cual LMARKET ofrece una solución inmediata accesible a muy bajo costo y altamente
+                                eficiente
+                            </p>
+                        </div>
+                        <div class="col-md-6 con-imagen">
+                            <img src="{% static 'usuarios/imagenes/IMAGENES HOME/tienda-de-comestibles.png' %}" class="logo" alt="">
+                        </div>
+
+                        <div class="col-md-6 con-texto">
+                            <h1>Lmarquet siempre encuentra lo que nesecitas</h1>
+                            <p>Para realizar una búsqueda los usuarios ingresan el producto que necesita, el sistema automáticamente escanea la zona geográfica en la que está para encontrar un proveedor cercano.
+                            </p>
+                            <p>La plataforma le mostrará los resultados de los proveedores cerca de su zona así como cantidad de productos y precios</p>
+                        </div>
+                        <div class="col-md-6 con-imagen">
+                            <img src="{% static 'usuarios/imagenes/IMAGENES HOME/clip-online-shopping-6.png' %}" class="logo" alt="">
+                        </div>
+                        <div class="col-md-6 con-texto">
+                            <h1>Lmarquet te permite competir en un mercado mas amplio</h1>
+                            <p>Interface sencilla y practica para publicar productos y servicio en una red de negocios verificados y seguros fortaleciendo su economía local.</p>
+                            <p>Lmarket ayuda a mejorar la logística de los negocios e incrementar la competitividad generado nuevos ingresos.</p>
+                        </div>
+                        <div class="col-md-6 con-imagen">
+                            <img src="{% static 'usuarios/imagenes/IMAGENES HOME/undraw_accept_tasks_po1c.png' %}" class="logo" alt="">
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="row">
+                        <div class="col-md-6 con-texto">
+                            <h1>Lmarquet te acerca a los profecionales</h1>
+                            <p>Ademas de permitirte encontrar productos comerciales, puedes contactar servicios profecionales como medicos, ingenieros, licanciados etc.. que presten servicios particulares de una manera sencilla y segura </p>
+                        </div>
+                        <div class="col-md-6 con-imagen">
+                            <img src="{% static 'usuarios/imagenes/IMAGENES HOME/veterinario.png' %}" class="logo" alt="">
+                        </div>
+
+                        <div class="col-md-6 con-texto">
+                            <h1>Lmarquet acerca mano de obra calificada</h1>
+                            <p>Tambien te acerca trabajadores de oficio como Albañilaes, electricistas, pintores,plomeros etc.. para que tengas un servicio rapido, de calidad y seguro</p>
+                        </div>
+                        <div class="col-md-6 con-imagen">
+                            <img src="{% static 'usuarios/imagenes/IMAGENES HOME/pintor.png' %}" class="logo" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="row">
+                        <div class="col-md-6 con-texto">
+                            <h1>Lmarquet localiza los products y servicios mas cercanos a ti</h1>
+                            <p>Es una herramienta tecnológica la cual permite a las PyMEs integrarse al de comercio digital.</p>
+                            <p> Es un sistema descentralizado para integrar a los negocios locales y los clientes dentro de una misma plataforma, permitiendo tener acceso a un mercado masivo en un entorno digital.</p>
+                            <p>Actualmente la alta demanda de disponibilidad de productos y servicios va en aumento, lo cual requiere de altos costos en logística, para lo cual LMARKET ofrece una solución inmediata accesible a muy bajo costo y altamente
+                                eficiente
+                            </p>
+
+                        </div>
+                        <div class="col-md-6 pt-5 con-imagen">
+                            <img src="{%static 'usuarios/imagenes/IMAGENES HOME/undraw_map_1r69.png' %}" class="logo mt-3" alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock contenido %}
+
+    
+   
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="{%static 'usuarios/bootstrap-4.5.0-dist/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>
